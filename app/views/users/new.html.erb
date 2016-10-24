@@ -1,0 +1,17 @@
+<%= form_for @user do |f| %>
+  <%= f.label "Name"  %>
+  <%= f.text_field :name, id: "user[name]" %>
+  <%= f.label "Nausea" %>
+  <%= f.text_field :nausea, id: "user[nausea]"  %>
+  <%= f.label "Happiness"  %>
+  <%= f.text_field :happiness %>
+  <%= f.label "height"  %>
+  <%= f.text_field :height %>
+  <%= f.label "tickets"  %>
+  <%= f.text_field :tickets %>
+  <%= f.label "password"  %>
+  <%= f.text_field :password %>
+  <%= f.label "admin"  %>
+  <%= f.check_box :admin %>
+  <%= f.submit %>
+<% end %>

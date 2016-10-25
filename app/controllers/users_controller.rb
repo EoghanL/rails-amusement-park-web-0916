@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       redirect_to new_user_path
@@ -26,6 +27,12 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
   end
+
+  def singin
+    @user = User.find_by(name: params[:name])
+    redirect_to "/#{@user.id}/show"
+  end
+
 
 
   private

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'application#index'
-  resources :users, :attractions
-  get '/signin', to: 'users#signin'
-  post '/signin', to: 'users#show'
+  resources :users, :attractions, :sessions
+  get '/signin', to: 'sessions#signin'
+  post '/signin', to: 'sessions#create'
 
 end

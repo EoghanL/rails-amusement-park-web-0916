@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
+    if @user.valid?
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -28,9 +28,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def singin
-    @user = User.find_by(name: params[:name])
-    redirect_to "/#{@user.id}/show"
+  def confirmed_signin
+    @user = User.find_by(name: params[name])
+    if @user.valid?
+      session[:user_id] = @user.id
+    else
+      redirect_to root_path
+    end
   end
 
 
@@ -38,6 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nausea, :happiness, :height, :tickets, :password, :admin)
+    params.require(:user).permit(:name, :nausea, :happiness,
+    :height, :tickets, :password, :admin)
   end
 end

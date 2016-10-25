@@ -4,14 +4,14 @@
   <%= f.label "Nausea" %>
   <%= f.text_field :nausea, id: "user[nausea]"  %>
   <%= f.label "Happiness"  %>
-  <%= f.text_field :happiness %>
+  <%= f.text_field :happiness, id: "user[happiness]" %>
   <%= f.label "height"  %>
-  <%= f.text_field :height %>
+  <%= f.text_field :height, id: "user[height]" %>
   <%= f.label "tickets"  %>
-  <%= f.text_field :tickets %>
-  <%= f.label "password"  %>
-  <%= f.text_field :password %>
-  <%= f.label "admin"  %>
-  <%= f.check_box :admin %>
+  <%= f.text_field :tickets, id: "user[tickets]" %>
+  <%= f.label "password" %>
+  <%= f.password_field :password, id: "user[password]" %>
+  <%= f.label "admin"  %><br>
+  <%= f.check_box :admin, id: "user[admin]" %>
   <%= f.submit %>
 <% end %>

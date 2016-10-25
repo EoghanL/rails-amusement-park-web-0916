@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140703140419) do
     t.integer "happiness"
     t.integer "tickets"
     t.integer "height"
-    t.string  "password"
-    t.boolean "admin",     default: false
+    t.string  "password_digest"
+    t.boolean "admin",           default: false
   end
 
 end
